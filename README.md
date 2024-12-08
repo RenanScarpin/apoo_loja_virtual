@@ -1,11 +1,17 @@
-Como testar o site:
+Como testar o site utilizando o vscode:
 
 No linux:
 source .venv/bin/activate
-python manage.py runserver
 
 No Windows:
-.venv\Scripts\Ativar.ps1
+Execute no terminal do vscode:
+.venv\Scripts\activate.bat
+
+
+Então, no VScode aperte ctrl+shift+p e selecione
+Python: Select interpreter
+E selecione .venv
+Então abra um terminal no vscode que seja cmd (commandprompt) e não powershell e execute
 python manage.py runserver
 
 Em ambos os casos, o site estará disponível no localhost na porta 8000
