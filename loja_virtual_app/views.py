@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import ProdutoForm
 from .models import Produto
 from django.core.paginator import Paginator
@@ -25,3 +25,7 @@ def listar_produtos(request):
     page_number = request.GET.get('page')
     produtos = paginator.get_page(page_number)
     return render(request, 'loja_virtual_app/listar_produtos.html', {'produtos': produtos})
+
+def detalhe_produto(request, produto_id):
+    produto = get_object_or_404(Produto, id=produto_id)
+    return render(request, 'loja_virtual_app/detalhe_produto.html', {'produto': produto})

@@ -1,0 +1,38 @@
+<!-- loja_virtual_app/templates/loja_virtual_app/detalhe_produto.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes do Produto - {{ produto.nome }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .produto-img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <a href="{% url 'listar_produtos' %}" class="btn btn-secondary mb-4">Voltar para Lista de Produtos</a>
+    <div class="row">
+        <div class="col-md-6">
+            {% if produto.imagem %}
+                <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" class="produto-img">
+            {% else %}
+                <img src="https://via.placeholder.com/400" alt="Sem Imagem" class="produto-img">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <h2>{{ produto.nome }}</h2>
+            <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+            <p><strong>Quantidade Disponível:</strong> {{ produto.quantidade }}</p>
+            <p><strong>Descrição:</strong></p>
+            <p>{{ produto.descricao }}</p>
+            <!-- Opcional: Botão de compra ou outras ações -->
+            <!-- <a href="#" class="btn btn-primary">Comprar</a> -->
+        </div>
+    </div>
+</div>
+</body>
+</html>

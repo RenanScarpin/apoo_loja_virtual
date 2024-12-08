@@ -30,6 +30,8 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ produto.nome }}</h5>
                         <p class="card-text">Preço: R$ {{ produto.preco }}</p>
+                        <!-- Link para detalhes do produto -->
+                        <a href="{% url 'detalhe_produto' produto.id %}" class="btn btn-primary">Ver Detalhes</a>
                     </div>
                 </div>
             </div>
