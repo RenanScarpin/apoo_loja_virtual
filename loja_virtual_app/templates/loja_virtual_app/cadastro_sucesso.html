@@ -1,0 +1,19 @@
+<!-- loja_virtual_app/templates/loja_virtual_app/cadastro_sucesso.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro Realizado</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5 text-center">
+    <h2>Produto Cadastrado com Sucesso!</h2>
+    <div class="mt-4">
+        <a href="{% url 'cadastrar_produto' %}" class="btn btn-primary">Cadastrar Outro Produto</a>
+        <a href="{% url 'listar_produtos' %}" class="btn btn-success">Ver Todos os Produtos</a>
+        <a href="{% url 'homepage' %}" class="btn btn-secondary">Voltar para Homepage</a>
+    </div>
+</div>
+</body>
+</html>

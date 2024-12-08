@@ -1,0 +1,18 @@
+<!-- loja_virtual_app/templates/loja_virtual_app/homepage.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loja Virtual - Homepage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5 text-center">
+    <h1>Bem-vindo à Loja Virtual</h1>
+    <div class="mt-4">
+        <a href="{% url 'cadastrar_produto' %}" class="btn btn-primary btn-lg m-2">Cadastrar Produto</a>
+        <a href="{% url 'listar_produtos' %}" class="btn btn-success btn-lg m-2">Ver Todos os Produtos</a>
+    </div>
+</div>
+</body>
+</html>
