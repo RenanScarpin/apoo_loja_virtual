@@ -1,13 +1,13 @@
-#Loja Virtual
+# Loja Virtual
 Este é um projeto Django para gerenciamento de produtos com funcionalidades de autenticação de usuários (cadastro, login, logout). O projeto permite adicionar, listar e visualizar detalhes de produtos.
 
-#Requisitos
+# Requisitos
 Antes de começar, certifique-se de ter os seguintes itens instalados no seu computador:
 
 - Python 3.8+
 - Git
 - Virtualenv (opcional, mas recomendado)
-#Como Rodar o Projeto
+# Como Rodar o Projeto
 1. Clone o Repositório
 ```
 git clone https://github.com/seu-usuario/nome-do-repositorio.git
