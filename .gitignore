@@ -1,0 +1,58 @@
+# Ambientes Virtuais
+venv/
+myenv/
+env/
+*.env
+
+# Arquivos Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Arquivos de banco de dados locais
+db.sqlite3
+*.db
+
+# Arquivos de configuração de IDEs
+.idea/
+.vscode/
+*.swp
+
+# Arquivos de cache e logs
+*.log
+*.pot
+*.pyc
+*.pyo
+*.~ 
+*.bak
+*.tmp
+*.orig
+
+# Arquivos de migrações gerados automaticamente
+*/migrations/*
+!*/migrations/__init__.py
+
+# Arquivos gerados por bibliotecas ou execução
+staticfiles/
+media/
+
+# Arquivos do Django Debug Toolbar
+debug.log
+
+# Arquivos de dependência de pacotes
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Configuração de builds ou pacotes
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Configurações do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos pessoais ou locais
+.env
+secrets.json
