@@ -10,7 +10,7 @@ Antes de começar, certifique-se de ter os seguintes itens instalados no seu com
 # Como Rodar o Projeto
 1. Clone o Repositório
 ```
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/RenanScarpin/apoo_loja_virtual.git
 ```
 2. Crie e Ative um Ambiente Virtual
 No Windows:
