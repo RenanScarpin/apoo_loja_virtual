@@ -2,86 +2,103 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Lista de Produtos</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <style>
-        .produto-card {
-            margin-bottom: 20px;
-        }
-        .produto-img {
-            height: 200px;
-            object-fit: cover;
-        }
-    </style>
+  <title>Lista de Produtos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    .produto-card {
+      margin-bottom: 20px;
+    }
+
+    .produto-img {
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
 </head>
+
 <body>
-<div class="container mt-5">
+  <div class="container mt-5">
+    <!-- Informações do usuário -->
+    <div class="d-flex justify-content-between mb-4">
+      {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}" class="btn btn-danger btn-sm">Logout</a>
+      {% else %}
+      <p class="mb-0">Você não está logado. <a href="{% url 'login' %}">Faça login</a>.</p>
+      {% endif %}
+    </div>
+
+    <!-- Título da Página -->
     <h2>Todos os Produtos</h2>
+
+    <!-- Lista de Produtos -->
     <div class="row mt-4">
-        {% for produto in produtos %}
-            <div class="col-md-4 produto-card">
-                <div class="card">
-                    {% if produto.imagem %}
-                        <img src="{{ produto.imagem.url }}" class="card-img-top produto-img" alt="{{ produto.nome }}">
-                    {% else %}
-                        <img src="https://via.placeholder.com/200" class="card-img-top produto-img" alt="Sem Imagem">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ produto.nome }}</h5>
-                        <p class="card-text">Preço: R$ {{ produto.preco }}</p>
-                        <!-- Link para detalhes do produto -->
-                        <a href="{% url 'detalhe_produto' produto.id %}" class="btn btn-primary">Ver Detalhes</a>
-                    </div>
-                </div>
-            </div>
-        {% empty %}
-            <p>Nenhum produto cadastrado no momento.</p>
-        {% endfor %}
+      {% for produto in produtos %}
+      <div class="col-md-4 produto-card">
+        <div class="card">
+          {% if produto.imagem %}
+          <img src="{{ produto.imagem.url }}" class="card-img-top produto-img" alt="{{ produto.nome }}">
+          {% else %}
+          <img src="https://via.placeholder.com/200" class="card-img-top produto-img" alt="Sem Imagem">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ produto.nome }}</h5>
+            <p class="card-text">Preço: R$ {{ produto.preco }}</p>
+            <!-- Link para detalhes do produto -->
+            <a href="{% url 'detalhe_produto' produto.id %}" class="btn btn-primary">Ver Detalhes</a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p>Nenhum produto cadastrado no momento.</p>
+      {% endfor %}
     </div>
 
     <!-- Paginação -->
     <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">
         {% if produtos.has_previous %}
-          <li class="page-item">
-            <a class="page-link" href="?page={{ produtos.previous_page_number }}" aria-label="Anterior">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ produtos.previous_page_number }}" aria-label="Anterior">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
         {% else %}
-          <li class="page-item disabled">
-            <a class="page-link" href="#" aria-label="Anterior">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
+        <li class="page-item disabled">
+          <a class="page-link" href="#" aria-label="Anterior">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
         {% endif %}
 
         {% for num in produtos.paginator.page_range %}
-          {% if produtos.number == num %}
-            <li class="page-item active"><a class="page-link" href="#">{{ num }}</a></li>
-          {% else %}
-            <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-          {% endif %}
+        {% if produtos.number == num %}
+        <li class="page-item active"><a class="page-link" href="#">{{ num }}</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
         {% endfor %}
 
         {% if produtos.has_next %}
-          <li class="page-item">
-            <a class="page-link" href="?page={{ produtos.next_page_number }}" aria-label="Próximo">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ produtos.next_page_number }}" aria-label="Próximo">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
         {% else %}
-          <li class="page-item disabled">
-            <a class="page-link" href="#" aria-label="Próximo">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
+        <li class="page-item disabled">
+          <a class="page-link" href="#" aria-label="Próximo">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
         {% endif %}
       </ul>
     </nav>
 
+    <!-- Link para Homepage -->
     <a href="{% url 'homepage' %}" class="btn btn-secondary mt-4">Voltar para Homepage</a>
-</div>
+  </div>
 </body>
+
 </html>

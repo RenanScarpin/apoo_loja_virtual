@@ -2,37 +2,41 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Detalhes do Produto - {{ produto.nome }}</title>
+    <title>Detalhes do Produto</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <style>
-        .produto-img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
 </head>
+
 <body>
-<div class="container mt-5">
-    <a href="{% url 'listar_produtos' %}" class="btn btn-secondary mb-4">Voltar para Lista de Produtos</a>
-    <div class="row">
-        <div class="col-md-6">
-            {% if produto.imagem %}
-                <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" class="produto-img">
+    <div class="container mt-5">
+        <!-- Informações do usuário -->
+        <div class="d-flex justify-content-between mb-4">
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="btn btn-danger btn-sm">Logout</a>
             {% else %}
-                <img src="https://via.placeholder.com/400" alt="Sem Imagem" class="produto-img">
+            <p class="mb-0">Você não está logado. <a href="{% url 'login' %}">Faça login</a>.</p>
             {% endif %}
         </div>
-        <div class="col-md-6">
+
+        <!-- Detalhes do Produto -->
+        <div class="text-center">
             <h2>{{ produto.nome }}</h2>
+            {% if produto.imagem %}
+            <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" class="img-fluid mt-3"
+                style="max-height: 400px;">
+            {% else %}
+            <img src="https://via.placeholder.com/400" alt="Sem Imagem" class="img-fluid mt-3">
+            {% endif %}
+            <p class="mt-4"><strong>Descrição:</strong> {{ produto.descricao }}</p>
             <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
-            <p><strong>Quantidade Disponível:</strong> {{ produto.quantidade }}</p>
-            <p><strong>Descrição:</strong></p>
-            <p>{{ produto.descricao }}</p>
-            <!-- Opcional: Botão de compra ou outras ações -->
-            <!-- <a href="#" class="btn btn-primary">Comprar</a> -->
+            <p><strong>Quantidade disponível:</strong> {{ produto.quantidade }}</p>
+            <div class="mt-4" style="margin-bottom: 50px;">
+                <a href="{% url 'listar_produtos' %}" class="btn btn-success">Voltar para Lista de Produtos</a>
+                <a href="{% url 'homepage' %}" class="btn btn-secondary">Voltar para Homepage</a>
+            </div>
         </div>
     </div>
-</div>
 </body>
+
 </html>

@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('loja_virtual_app.urls')),  # Define a Homepage como raiz
-    path('produtos/', include('loja_virtual_app.urls')),  # Inclui as URLs do app
 ]
 
 if settings.DEBUG:

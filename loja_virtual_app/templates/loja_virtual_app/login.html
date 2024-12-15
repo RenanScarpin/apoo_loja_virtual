@@ -1,0 +1,33 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Login</h2>
+
+        <!-- Bloco para exibir apenas a última mensagem -->
+        {% if last_message %}
+        <div class="alert alert-danger">
+            {{ last_message }}
+        </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+        </form>
+        <div class="text-center mt-3">
+            <p>Não tem uma conta? <a href="{% url 'signup' %}">Cadastre-se</a></p>
+            <a href="{% url 'homepage' %}" class="btn btn-secondary mt-2">Voltar para Homepage</a>
+        </div>
+    </div>
+</body>
+
+</html>
