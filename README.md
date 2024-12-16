@@ -12,6 +12,10 @@ Antes de começar, certifique-se de ter os seguintes itens instalados no seu com
 ```
 git clone https://github.com/RenanScarpin/apoo_loja_virtual.git
 ```
+3. Navegue até a pasta do projeto
+```
+cd apoo_loja_virtual
+```
 2. Crie e Ative um Ambiente Virtual
 No Windows:
 ```
@@ -29,10 +33,11 @@ Certifique-se de estar no diretório raiz do projeto e execute:
 ```
 pip install -r requirements.txt
 ```
-4. Prepare o Banco de Dados
+5. Prepare o Banco de Dados
 Execute as migrações para configurar o banco de dados:
 
 ```
+python manage.py makemigrations
 python manage.py migrate
 ```
 6. Inicie o Servidor Local
