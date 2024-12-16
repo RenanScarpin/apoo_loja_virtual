@@ -12,11 +12,11 @@ Antes de começar, certifique-se de ter os seguintes itens instalados no seu com
 ```
 git clone https://github.com/RenanScarpin/apoo_loja_virtual.git
 ```
-3. Navegue até a pasta do projeto
+2. Navegue até a pasta do projeto
 ```
 cd apoo_loja_virtual
 ```
-2. Crie e Ative um Ambiente Virtual
+3. Crie e Ative um Ambiente Virtual
 No Windows:
 ```
 python -m venv venv
@@ -27,7 +27,7 @@ No macOS/Linux:
 python3 -m venv venv
 source venv/bin/activate
 ```
-3. Instale as Dependências
+4. Instale as Dependências
 Certifique-se de estar no diretório raiz do projeto e execute:
 
 ```
